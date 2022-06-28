@@ -3,3 +3,5 @@ Release/
 *.opensdf
 *.sdf
 *.suo
+/smallpt/*.user
+/smallpt/image.ppm
