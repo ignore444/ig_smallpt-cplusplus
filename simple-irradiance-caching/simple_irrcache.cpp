@@ -18,10 +18,9 @@ const double INF = 1e20;
 const double EPS = 1e-6;
 const double MaxDepth = 5;
 
-// *** その他の関数 ***
+// *** Other functions ***
 inline double rand01() { return (double)rand()/RAND_MAX; }
 
-// *** データ構造 ***
 struct Vec {
 	double x, y, z;
 	Vec(const double x_ = 0, const double y_ = 0, const double z_ = 0) : x(x_), y(y_), z(z_) {}
@@ -34,8 +33,8 @@ struct Vec {
 };
 inline Vec operator*(double f, const Vec &v) { return v * f; }
 inline Vec Normalize(const Vec &v) { return v / v.Length(); }
-// 要素ごとの積をとる
-inline const Vec Multiply(const Vec &v1, const Vec &v2) {
+inline const Vec Multiply(const Vec &v1, const Vec &v2) 
+{
 	return Vec(v1.x * v2.x, v1.y * v2.y, v1.z * v2.z);
 }
 inline const double Dot(const Vec &v1, const Vec &v2) {
@@ -65,7 +64,8 @@ struct Sphere {
 
 	Sphere(const double radius_, const Vec &position_, const Color &emission_, const Color &color_, const ReflectionType ref_type_) :
 	  radius(radius_), position(position_), emission(emission_), color(color_), ref_type(ref_type_) {}
-	// 교차점까지의 거리 반환, 교차하지 않으면 0 반환
+
+	// return distance to intersection, return 0 if no intersection
 	const double intersect(const Ray &ray) {
 		Vec o_p = position - ray.org;
 		const double b = Dot(o_p, ray.dir), det = b * b - Dot(o_p, o_p) + radius * radius;
