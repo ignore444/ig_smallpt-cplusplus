@@ -5,3 +5,5 @@ Release/
 *.suo
 /smallpt/*.user
 /smallpt/image.ppm
+/simple-irradiance-caching/*.filters
+/simple-irradiance-caching/*.user

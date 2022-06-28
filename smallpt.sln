@@ -1,20 +1,39 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smallpt", "smallpt\smallpt.vcxproj", "{C85194E2-53AB-486A-9150-B955C5C98863}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple-irradiance-caching", "simple-irradiance-caching\simple-irradiance-caching.vcxproj", "{3C35735E-30E7-48A1-9C9E-F27E499F13C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
+		Debug|x64 = Debug|x64
 		Release|Win32 = Release|Win32
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C85194E2-53AB-486A-9150-B955C5C98863}.Debug|Win32.ActiveCfg = Debug|Win32
 		{C85194E2-53AB-486A-9150-B955C5C98863}.Debug|Win32.Build.0 = Debug|Win32
+		{C85194E2-53AB-486A-9150-B955C5C98863}.Debug|x64.ActiveCfg = Debug|Win32
 		{C85194E2-53AB-486A-9150-B955C5C98863}.Release|Win32.ActiveCfg = Release|Win32
 		{C85194E2-53AB-486A-9150-B955C5C98863}.Release|Win32.Build.0 = Release|Win32
+		{C85194E2-53AB-486A-9150-B955C5C98863}.Release|x64.ActiveCfg = Release|Win32
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Debug|Win32.Build.0 = Debug|Win32
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Debug|x64.ActiveCfg = Debug|x64
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Debug|x64.Build.0 = Debug|x64
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|Win32.ActiveCfg = Release|Win32
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|Win32.Build.0 = Release|Win32
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|x64.ActiveCfg = Release|x64
+		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {822F3AA3-A06F-4273-8B90-DE23E6B7B106}
 	EndGlobalSection
 EndGlobal
