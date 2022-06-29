@@ -3,6 +3,18 @@
 // A part of this software is based on smallpt (http://www.kevinbeason.com/smallpt/) and
 // released under the MIT License (http://kagamin.net/hole/smallpt-license.txt).
 
+/*
+* 
+   | y+
+   |
+   |
+   |__________ x+
+   /
+  /
+ / z+
+
+*/
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <cmath>
 #include <cstdlib>
@@ -389,22 +401,24 @@ public:
 
 // *** Rendering Scene Data ****
 // from smallpt
-Sphere spheres[] = {
-	Sphere(5.0, Vec(50.0, 75.0, 81.6),Color(12,12,12), Color(), DIFFUSE),			//照明
-	Sphere(1e5, Vec( 1e5+1,40.8,81.6), Color(), Color(0.75, 0.25, 0.25),DIFFUSE),	// 左
-	Sphere(1e5, Vec(-1e5+99,40.8,81.6),Color(), Color(0.25, 0.25, 0.75),DIFFUSE),	// 右
-	Sphere(1e5, Vec(50,40.8, 1e5),     Color(), Color(0.75, 0.75, 0.75),DIFFUSE),	// 奥
-	Sphere(1e5, Vec(50,40.8,-1e5+170), Color(), Color(), DIFFUSE),					// 手前
-	Sphere(1e5, Vec(50, 1e5, 81.6),    Color(), Color(0.75, 0.75, 0.75),DIFFUSE),	// 床
-	Sphere(1e5, Vec(50,-1e5+81.6,81.6),Color(), Color(0.75, 0.75, 0.75),DIFFUSE),	// 天井
-	Sphere(16.5,Vec(27,16.5,47),       Color(), Color(0.75, 0.75, 0.75), DIFFUSE),	// 鏡
-	Sphere(16.5,Vec(73,16.5,78),       Color(), Color(0.75, 0.75, 0.75), DIFFUSE),	//ガラス
+Sphere spheres[] = 
+{		//radius,		position,				emission,			color,						reflection type
+	Sphere(	5.0,		Vec(50.0, 75.0, 81.6),	Color(12,12,12),	Color(),					DIFFUSE),			// light source
+	Sphere(	1e5,		Vec( 1e5+1,40.8,81.6),	Color(),			Color(0.75, 0.25, 0.25),	DIFFUSE),			// left
+	Sphere(	1e5,		Vec(-1e5+99,40.8,81.6),	Color(),			Color(0.25, 0.25, 0.75),	DIFFUSE),			// right
+	Sphere(	1e5,		Vec(50,40.8, 1e5),		Color(),			Color(0.75, 0.75, 0.75),	DIFFUSE),			// back
+	Sphere(	1e5,		Vec(50,40.8,-1e5+170),	Color(),			Color(),					DIFFUSE),			// foreground
+	Sphere(	1e5,		Vec(50, 1e5, 81.6),		Color(),			Color(0.75, 0.75, 0.75),	DIFFUSE),			// floor
+	Sphere(	1e5,		Vec(50,-1e5+81.6,81.6),	Color(),			Color(0.75, 0.75, 0.75),	DIFFUSE),			// ceiling
+	Sphere(	16.5,		Vec(27,16.5,47),		Color(),			Color(0.75, 0.75, 0.75),	DIFFUSE),			// mirror
+	Sphere(	16.5,		Vec(73,16.5,78),		Color(),			Color(0.75, 0.75, 0.75),	DIFFUSE),			// glass
 };
 const int LightID = 0;
 
 // *** Rendering Function ***
 // 
-inline bool intersect_scene(const Ray &ray, double *t, int *id) {
+inline bool intersect_scene(const Ray &ray, double *t, int *id) 
+{
 	const double n = sizeof(spheres) / sizeof(Sphere);
 	*t  = INF;
 	*id = -1;
