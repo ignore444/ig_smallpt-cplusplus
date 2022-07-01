@@ -7,11 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smallpt", "smallpt\smallpt.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple-irradiance-caching", "simple-irradiance-caching\simple-irradiance-caching.vcxproj", "{3C35735E-30E7-48A1-9C9E-F27E499F13C5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.Simple-PathTracer", "1.Simple-PathTracer\1.Simple-PathTracer.vcxproj", "{EB3688F9-D337-448A-8811-39BD44E25C1D}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Path Tracing", "1.Path Tracing", "{87FA3E71-9E20-4FDB-8D12-0D5006032BCF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.Simple-PathTracer-NoRecursion", "2.Simple-PathTracer-NoRecursion\2.Simple-PathTracer-NoRecursion.vcxproj", "{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.Simple-PathTracer", "1.PathTracing\1.Simple-PathTracer\1.Simple-PathTracer.vcxproj", "{EB3688F9-D337-448A-8811-39BD44E25C1D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.Simple-PathTracer-NoRecursion", "1.PathTracing\2.Simple-PathTracer-NoRecursion\2.Simple-PathTracer-NoRecursion.vcxproj", "{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
