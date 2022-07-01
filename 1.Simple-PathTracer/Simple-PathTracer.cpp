@@ -17,11 +17,12 @@ const double EPS = 1e-6;
 const double MaxDepth = 5;
 const double LimitDepth = 100;
 
-inline double clamp(double x) { return x < 0 ? 0 : x>1 ? 1 : x; }
-inline int toInt(double x) { return int(pow(clamp(x), 1 / 2.2) * 255 + .5); }
-inline double rand01() { return (double)rand() / RAND_MAX; }
+inline double clamp(double x)	{ return x < 0 ? 0 : x>1 ? 1 : x; }
+inline int toInt(double x)		{ return int(pow(clamp(x), 1 / 2.2) * 255 + .5); }
+inline double rand01()			{ return (double)rand() / RAND_MAX; }
 
-struct Vec {
+struct Vec 
+{
 	double x, y, z;
 	Vec(const double x_ = 0, const double y_ = 0, const double z_ = 0) : x(x_), y(y_), z(z_) {}
 	inline Vec operator+(const Vec& b) const { return Vec(x + b.x, y + b.y, z + b.z); }
@@ -33,30 +34,36 @@ struct Vec {
 };
 inline Vec operator*(double f, const Vec& v) { return v * f; }
 inline Vec Normalize(const Vec& v) { return v / v.Length(); }
-inline const Vec Multiply(const Vec& v1, const Vec& v2) {
+inline const Vec Multiply(const Vec& v1, const Vec& v2) 
+{
 	return Vec(v1.x * v2.x, v1.y * v2.y, v1.z * v2.z);
 }
-inline const double Dot(const Vec& v1, const Vec& v2) {
+inline const double Dot(const Vec& v1, const Vec& v2) 
+{
 	return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
 }
-inline const Vec Cross(const Vec& v1, const Vec& v2) {
+inline const Vec Cross(const Vec& v1, const Vec& v2) 
+{
 	return Vec((v1.y * v2.z) - (v1.z * v2.y), (v1.z * v2.x) - (v1.x * v2.z), (v1.x * v2.y) - (v1.y * v2.x));
 }
 typedef Vec Color;
 const Color BackgroundColor(0.0, 0.0, 0.0);
 
-struct Ray {
+struct Ray 
+{
 	Vec org, dir;
 	Ray(const Vec org_, const Vec& dir_) : org(org_), dir(dir_) {}
 };
 
-enum ReflectionType {
+enum ReflectionType 
+{
 	DIFFUSE,    
 	SPECULAR,   
 	REFRACTION, 
 };
 
-struct Sphere {
+struct Sphere 
+{
 	double radius;
 	Vec position;
 	Color emission, color;
@@ -65,10 +72,12 @@ struct Sphere {
 	Sphere(const double radius_, const Vec& position_, const Color& emission_, const Color& color_, const ReflectionType ref_type_) :
 		radius(radius_), position(position_), emission(emission_), color(color_), ref_type(ref_type_) {}
 	
-	const double intersect(const Ray& ray) {
+	const double intersect(const Ray& ray) 
+	{
 		Vec o_p = position - ray.org;
 		const double b = Dot(o_p, ray.dir), det = b * b - Dot(o_p, o_p) + radius * radius;
-		if (det >= 0.0) {
+		if (det >= 0.0)
+		{
 			const double sqrt_det = sqrt(det);
 			const double t1 = b - sqrt_det, t2 = b + sqrt_det;
 			if (t1 > EPS)		return t1;
@@ -79,25 +88,29 @@ struct Sphere {
 };
 
 // from small ppt
-Sphere spheres[] = {
-	Sphere(1e5, Vec(1e5 + 1,40.8,81.6), Color(), Color(0.75, 0.25, 0.25),DIFFUSE),// 左
-	Sphere(1e5, Vec(-1e5 + 99,40.8,81.6),Color(), Color(0.25, 0.25, 0.75),DIFFUSE),// 右
-	Sphere(1e5, Vec(50,40.8, 1e5),     Color(), Color(0.75, 0.75, 0.75),DIFFUSE),// 奥
-	Sphere(1e5, Vec(50,40.8,-1e5 + 170), Color(), Color(), DIFFUSE),// 手前
-	Sphere(1e5, Vec(50, 1e5, 81.6),    Color(), Color(0.75, 0.75, 0.75),DIFFUSE),// 床
-	Sphere(1e5, Vec(50,-1e5 + 81.6,81.6),Color(), Color(0.75, 0.75, 0.75),DIFFUSE),// 天井
-	Sphere(16.5,Vec(27,16.5,47),       Color(), Color(1,1,1) * .99, SPECULAR),// 鏡
-	Sphere(16.5,Vec(73,16.5,78),       Color(), Color(1,1,1) * .99, REFRACTION),//ガラス
-	Sphere(5.0, Vec(50.0, 75.0, 81.6),Color(12,12,12), Color(), DIFFUSE),//照明
+Sphere spheres[] = 
+{
+	Sphere(1e5, Vec(1e5 + 1,40.8,81.6), Color(), Color(0.75, 0.25, 0.25),DIFFUSE),	// left
+	Sphere(1e5, Vec(-1e5 + 99,40.8,81.6),Color(), Color(0.25, 0.25, 0.75),DIFFUSE),	// light
+	Sphere(1e5, Vec(50,40.8, 1e5),     Color(), Color(0.75, 0.75, 0.75),DIFFUSE),	// back
+	Sphere(1e5, Vec(50,40.8,-1e5 + 170), Color(), Color(), DIFFUSE),				// front
+	Sphere(1e5, Vec(50, 1e5, 81.6),    Color(), Color(0.75, 0.75, 0.75),DIFFUSE),	// floor
+	Sphere(1e5, Vec(50,-1e5 + 81.6,81.6),Color(), Color(0.75, 0.75, 0.75),DIFFUSE),	// ceiling
+	Sphere(16.5,Vec(27,16.5,47),       Color(), Color(1,1,1) * .99, SPECULAR),		// mirror
+	Sphere(16.5,Vec(73,16.5,78),       Color(), Color(1,1,1) * .99, REFRACTION),	// glass
+	Sphere(5.0, Vec(50.0, 75.0, 81.6),Color(12,12,12), Color(), DIFFUSE),			// light
 };
 
-inline bool intersect_scene(const Ray& ray, double* t, int* id) {
+inline bool intersect_scene(const Ray& ray, double* t, int* id) 
+{
 	const double n = sizeof(spheres) / sizeof(Sphere);
 	*t = INF;
 	*id = -1;
-	for (int i = 0; i < int(n); i++) {
+	for (int i = 0; i < int(n); i++) 
+	{
 		double d = spheres[i].intersect(ray);
-		if (d > 0.0 && d < *t) {
+		if (d > 0.0 && d < *t) 
+		{
 			*t = d;
 			*id = i;
 		}
@@ -105,7 +118,8 @@ inline bool intersect_scene(const Ray& ray, double* t, int* id) {
 	return *t < INF;
 }
 
-Color radiance(const Ray& ray, const int depth) {
+Color radiance(const Ray& ray, const int depth) 
+{
 	double t; 
 	int id;   
 	if (!intersect_scene(ray, &t, &id))
@@ -124,7 +138,8 @@ Color radiance(const Ray& ray, const int depth) {
 	// Russian roulette threshold is arbitrary, but it is better to use color reflectance etc.
 	double russian_roulette_probability = std::max(obj.color.x, std::max(obj.color.y, obj.color.z));
 	// Run Russian roulette after tracking Ray above a certain level and decide whether to stop tracking
-	if (depth > MaxDepth) {
+	if (depth > MaxDepth) 
+	{
 		if (rand01() >= russian_roulette_probability)
 			return obj.emission;
 	}
@@ -167,7 +182,7 @@ Color radiance(const Ray& ray, const int depth) {
 		case REFRACTION: 
 		{
 			Ray reflection_ray = Ray(hitpoint, ray.dir - normal * 2.0 * Dot(normal, ray.dir));
-			bool into = Dot(normal, orienting_normal) > 0.0; // レイがオブジェクトから出るのか、入るのか
+			bool into = Dot(normal, orienting_normal) > 0.0;	// Whether the ray leaves or enters the object
 
 
 			// Snell's law
@@ -189,7 +204,7 @@ Color radiance(const Ray& ray, const int depth) {
 			const double R0 = (a * a) / (b * b);
 			const double c = 1.0 - (into ? -ddn : Dot(tdir, normal));
 			const double Re = R0 + (1.0 - R0) * pow(c, 5.0);
-			const double Tr = 1.0 - Re; // 屈折光の運ぶ光の量
+			const double Tr = 1.0 - Re; // Amount of light carried by refracted light
 			const double probability = 0.25 + 0.5 * Re;
 
 			// If you track the ray above a certain level, track either refraction or reflection. (Otherwise, Ray will increase exponentially)

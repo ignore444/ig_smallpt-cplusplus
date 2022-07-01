@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.Simple-PathTracer", "1.Si
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Path Tracing", "1.Path Tracing", "{87FA3E71-9E20-4FDB-8D12-0D5006032BCF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.Simple-PathTracer-NoRecursion", "2.Simple-PathTracer-NoRecursion\2.Simple-PathTracer-NoRecursion.vcxproj", "{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -41,12 +43,21 @@ Global
 		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|Win32.Build.0 = Release|Win32
 		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|x64.ActiveCfg = Release|x64
 		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|x64.Build.0 = Release|x64
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Debug|Win32.Build.0 = Debug|Win32
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Debug|x64.ActiveCfg = Debug|x64
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Debug|x64.Build.0 = Debug|x64
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Release|Win32.ActiveCfg = Release|Win32
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Release|Win32.Build.0 = Release|Win32
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Release|x64.ActiveCfg = Release|x64
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{EB3688F9-D337-448A-8811-39BD44E25C1D} = {87FA3E71-9E20-4FDB-8D12-0D5006032BCF}
+		{A46C874C-0F5A-484F-927D-C8FBFFCDD57E} = {87FA3E71-9E20-4FDB-8D12-0D5006032BCF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {822F3AA3-A06F-4273-8B90-DE23E6B7B106}

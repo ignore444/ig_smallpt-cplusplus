@@ -7,3 +7,11 @@ Release/
 /smallpt/image.ppm
 /simple-irradiance-caching/*.filters
 /simple-irradiance-caching/*.user
+/.vs/smallpt/v16
+/1.Simple-PathTracer/image.hdr
+/1.Simple-PathTracer/1.Simple-PathTracer.vcxproj.user
+/1.Simple-PathTracer/1.Simple-PathTracer.vcxproj.filters
+/smallpt/image-100.ppm
+/smallpt/image-10.ppm
+/smallpt/image-1.ppm
+/simple-irradiance-caching/image.hdr
