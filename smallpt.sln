@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "smallpt", "smallpt\smallpt.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "simple-irradiance-caching", "simple-irradiance-caching\simple-irradiance-caching.vcxproj", "{3C35735E-30E7-48A1-9C9E-F27E499F13C5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "1.Simple-PathTracer", "1.Simple-PathTracer\1.Simple-PathTracer.vcxproj", "{EB3688F9-D337-448A-8811-39BD44E25C1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Path Tracing", "1.Path Tracing", "{87FA3E71-9E20-4FDB-8D12-0D5006032BCF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -29,9 +33,20 @@ Global
 		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|Win32.Build.0 = Release|Win32
 		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|x64.ActiveCfg = Release|x64
 		{3C35735E-30E7-48A1-9C9E-F27E499F13C5}.Release|x64.Build.0 = Release|x64
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Debug|Win32.Build.0 = Debug|Win32
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Debug|x64.ActiveCfg = Debug|x64
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Debug|x64.Build.0 = Debug|x64
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|Win32.ActiveCfg = Release|Win32
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|Win32.Build.0 = Release|Win32
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|x64.ActiveCfg = Release|x64
+		{EB3688F9-D337-448A-8811-39BD44E25C1D}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB3688F9-D337-448A-8811-39BD44E25C1D} = {87FA3E71-9E20-4FDB-8D12-0D5006032BCF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {822F3AA3-A06F-4273-8B90-DE23E6B7B106}
