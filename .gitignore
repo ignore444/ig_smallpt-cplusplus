@@ -8,3 +8,5 @@ Release/
 *.hdr
 *.ppm
 /.vs/smallpt/v16
+.vs/smallpt/FileContentIndex
+.vs/smallpt/v17
